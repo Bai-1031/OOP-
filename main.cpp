@@ -1,46 +1,126 @@
 #include <iostream>
+#include <string>
+#include <unordered_map>
+#include <limits>
 #include "scene_manager.h"
+#include "orphanage_manager.h"
+#include "haunted_forest_manager.h"
+#include "train_realm_manager.h"
+#include "faceless_house_manager.h"  // ·s¼W²ִ₪­¼@¥»
+
+using namespace std;
+
+void displayIntro(int choice) {
+    cout << "שÝשששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששß\n";
+    cout << "שר           ¢w ֵו®×₪ו¦r«_ְI ¢w           שר\n";
+
+    if (choice == 1) {
+        cout << "שר          ¡m¯d°|¯f©׀¡G¹ךֵח½g¡n        שר\n";
+        cout << "שאשששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששג\n";
+        cout << "שר §A¦b₪@¶¡­¯¥ֽ¯f©׀¿פ¨׃¡A°O¾׀¥‏¥¢¡K¡K   שר\n";
+        cout << "שר ×ֵ®נ₪₪ִj÷©µÛ®ר¬r₪פ¨‎»P₪£¦w®נ®§¡C     שר\n";
+        cout << "שר ¨C₪@­׃¿ן¾Ü³£±N₪Þ»ג₪£¦Pµ²§½¡C         שר\n";
+        cout << "שר §A¡A¬O§_₪w·ַ³ֶ¦n­±¹ן¯u¬Û¡H           שר\n";
+    }
+    else if (choice == 2) {
+        cout << "שר         ¡m¶A©G©t¨א°|¡G®ר¥¢½g¡n       שר\n";
+        cout << "שאשששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששג\n";
+        cout << "שר ₪@«Ê¯«¯µ«H¥ף¡A±a§A½ס₪J³Q¿ע§ׁ×÷©t¨א°| שר\n";
+        cout << "שר »G¦´ְנ­±¶¡¡A¼חֲֳµÛµLֱn×÷­ת×_¡K¡K     שר\n";
+        cout << "שר ¯u¬Û¡A±N¦b°O¾׀»P₪Ûִ±₪₪¯B²{¡C         שר\n";
+    }
+    else if (choice == 3) {
+        cout << "שר           ¡m¸Þ´ֻ×L¡G°gֳת½g¡n         שר\n";
+        cout << "שאשששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששג\n";
+        cout << "שר ¿@ֳתֵ¢¸n×÷´ֻ×L¡A°g¥¢¨ה₪₪×÷®£©ֶ¬G¨ֶ¡C שר\n";
+        cout << "שר ¶ַ»¡²`³BֱפֲֳµÛ³Q¿ע§ׁ×÷¯µ±K»P¦MְI¡C   שר\n";
+    }
+    else if (choice == 4) {
+        cout << "שר           ¡m¹q¨®²§¬ֹ¡G°g³~½g¡n       שר\n";
+        cout << "שאשששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששג\n";
+        cout << "שר ²`©]¹q¨®¡A×ֵµL₪@₪H¡A¿O¥ת©¿©ת©¿·t¡C   שר\n";
+        cout << "שר ₪@½כµL²׳ֲI×÷¦C¨®¡A±a§A«e©¹¥¼×¾²§¬ֹ¡C שר\n";
+    }
+    else if (choice == 5) {
+        cout << "שר        ¡mµLֱy₪H₪§«־¡G¾µ¹Ú½g¡n        שר\n";
+        cout << "שאשששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששג\n";
+        cout << "שר §A³Q§x¦b₪@©ׂµLֱy₪H×÷©t¨א°|הת₪ß¥B®£©ֶ שר\n";
+        cout << "שר ³o¸ּ¨S¦³°kֲק×÷¸פ¡A¥u¦³­±¹ן»P±Y¼ל¡K¡K שר\n";
+        cout << "שר §A×÷²z´¼±N³Q¼¹µץ¦¨¸H₪ש¡C             שר\n";
+    }
+
+    cout << "שדשששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששו\n";
+}
 
 int main() {
-    auto scenes = createScenes();   // וˆו§‹ו–ו‡זƒ…ט³‡ז–™
-    string currentSceneId = "0";    // יזˆ²ו¾ו ´ז™¯ 0 י–‹ו§‹
+    cout << "שÝשששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששß\n";
+    cout << "שר           ¢w ֵו®×₪ו¦r«_ְI ¢w           שר\n";
+    cout << "שר             ¹Cְ¸¼@¥»¿ן¾Ü             שר\n";
+    cout << "שאשששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששג\n";
+    cout << "שר 1. ¡m¯d°|¯f©׀¡G¹ךֵח½g¡n              שר\n";
+    cout << "שר 2. ¡m¶A©G©t¨א°|¡G®ר¥¢½g¡n            שר\n";
+    cout << "שר 3. ¡m¸Þ´ֻ×L¡G°gֳת½g¡n                שר\n";
+    cout << "שר 4. ¡m¹q¨®²§¬ֹ¡G°g³~½g¡n              שר\n";
+    cout << "שר 5. ¡mµLֱy₪H₪§«־¡G¾µ¹Ú½g¡n            שר\n";
+    cout << "שדשששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששששו\n";
 
-    while (!currentSceneId.empty()) {  // ו×ט¦י‚„ז‰ו ´ז™¯ן¼ו°±ח¹¼ח÷יזˆ²
-        const Scene& scene = scenes[currentSceneId];  // ז‰¾וˆ°ח•¶ו‰ו ´ז™¯
-        scene.display();   // י¡¯ח₪÷ו ´ז™¯ו…§ו®¹טˆ‡י¸י …
-
-        if (scene.choices.empty()) {
-                    cout << "\n ז•…ה÷‹חµזד€‚\n";
-                    break;
-                }
-
-        
-        int choiceIndex = 0;
-        cout << "\nט«‹ט¼¸ו…¥י¸י …ח·¨ט™ן¼ˆ1-" << scene.choices.size() << "ן¼‰ן¼";
-        cin >> choiceIndex;   // ט®€ו–ה½¿ח”¨ט€…ט¼¸ו…¥
-
-        if (cin.fail()) {   // ו¦‚זט¼¸ו…¥י¯ט×₪ן¼ˆיז•¸ו­—ן¼‰
-            cin.clear();    // ז¸…י™₪י¯ט×₪ז——ז¨™
-            cin.ignore(10000, '\n');  // ו¿½ח•¥ו‰©י₪˜ט¼¸ו…¥ח›´וˆ°ז›ט¡
-            cout << "ט«‹ט¼¸ו…¥ז•¸ו­—ד€‚\n\n";
-            continue;
-        }
-
-        // ט‹¥ט¼¸ו…¥ח·¨ט™ט¶…ו‡÷ח¯„ו
-        if (choiceIndex < 1 || choiceIndex > scene.choices.size()) {
-            cout << "ח„¡ז•ˆח„י¸י …ן¼ט«‹י‡ז–°י¸ז“‡ד€‚\n\n";
-            continue;
-        }
-
-        const Choice& choice = scene.choices[choiceIndex - 1];  // ו–ו¾—ו°ז‡‰י¸י …ן¼ˆי™£וˆ—ו¾ 0 י–‹ו§‹ן¼‰
-
-        if (!choice.hint.empty()) {
-            cout << "\n" << choice.hint << "\n";   // י¡¯ח₪÷זח₪÷ז–‡ו­—
-        }
-
-        currentSceneId = choice.nextSceneId;  // ט·³ט½‰וˆ°ה¸‹ה¸€ו€‹ו ´ז™¯ ID
-        cout << "\n---\n\n";  // ח¾ט§€וˆ†י”
-        
+    int storyChoice = 0;
+    while (true) {
+        cout << "½׀¿ן¾Ü·Qֵיֵח×÷¼@¥»¡]¿י₪J 1¡ד5¡^¡G";
+        cin >> storyChoice;
+        if (storyChoice >= 1 && storyChoice <= 5) break;
+        cout << "½׀¿י₪J¦³®ִ¿ן¶µ¡]1¡ד5¡^¡C\n";
     }
+
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    displayIntro(storyChoice);
+    cout << "\n½׀«צ₪U Enter ֱה¶}©l¹Cְ¸...";
+    cin.get();
+
+    unordered_map<string, Scene> scenes;
+    string currentSceneId = "0";
+
+    if (storyChoice == 1) scenes = createScenes();
+    else if (storyChoice == 2) scenes = createOrphanageScenes();
+    else if (storyChoice == 3) scenes = createHauntedForestScenes();
+    else if (storyChoice == 4) scenes = createTrainRealmScenes();
+    else if (storyChoice == 5) scenes = createFacelessHouseScenes(); // ·s¼W²ִ₪­¼@¥»³ץ´÷¨ח¦¡
+
+    while (!currentSceneId.empty()) {
+        const Scene& scene = scenes[currentSceneId];
+        scene.display();
+
+        if (scene.getChoices().empty()) {
+            cout << "\n¬G¨ֶµ²§פ¡C\n";
+            break;
+        }
+
+        int choiceIndex = -1;
+        while (true) {
+            cout << "\n½׀¿י₪J¿ן¶µ½s¸¹¡]1-" << scene.getChoices().size() << "¡^¡G";
+            cin >> choiceIndex;
+
+            if (cin.fail()) {
+                cin.clear();
+                cin.ignore(10000, '\n');
+                cout << "½׀¿י₪J¼ֶ¦r¡C\n";
+            }
+            else if (choiceIndex < 1 || choiceIndex >(int)scene.getChoices().size()) {
+                cout << "µL®ִ×÷¿ן¶µ¡A½׀­«·s¿ן¾Ü¡C\n";
+            }
+            else {
+                break;
+            }
+        }
+
+        const Choice& choice = scene.getChoices()[choiceIndex - 1];
+        if (!choice.getHint().empty()) {
+            cout << "\n" << choice.getHint() << "\n";
+        }
+
+        currentSceneId = choice.getNextSceneId();
+        cout << "\n---\n\n";
+    }
+
     return 0;
 }

@@ -4,19 +4,45 @@
 #include <chrono>
 
 Scene::Scene(const string& i, const string& c, const vector<Choice>& ch)
-    : id(i), content(c), choices(ch) {}
+    : id(i), content(c), choices(ch) {
+}
+
+#include <sstream> // �T�O�A���o��
+#include <thread>
+#include <chrono>
 
 void Scene::display() const {
-    // 逐字輸出場景內容，有點像打字效果
-    for (char c : content) {
-        cout << c << flush;
-        this_thread::sleep_for(chrono::milliseconds(30));  // 等 30 毫秒
-    }
-    cout << "\n\n"; // 加兩行空白做美觀分隔
+    stringstream ss(content);
+    string line;
 
-    // 顯示所有選項
+    while (getline(ss, line, '\n')) {
+        for (char c : line) {
+            cout << c << flush;
+            this_thread::sleep_for(chrono::milliseconds(20)); // ���r���ĪG
+        }
+        cin.ignore();
+    }
+
+    cout << "\n";
+
     for (int i = 0; i < choices.size(); ++i) {
         choices[i].display(i);
     }
 }
 
+
+void Scene::setId(string i) {
+    id = i;
+}
+string Scene::getId() {
+    return id;
+}
+void Scene::setContent(string c) {
+    content = c;
+}
+string Scene::getContent() {
+    return content;
+}
+const vector<Choice>& Scene::getChoices() const {
+    return choices;
+}
