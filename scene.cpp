@@ -2,16 +2,14 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
+#include <sstream> 
 
 Scene::Scene(const string& i, const string& c, const vector<Choice>& ch)
     : id(i), content(c), choices(ch) {
 }
 
-#include <sstream> // 確保你有這行
-#include <thread>
-#include <chrono>
-
 void Scene::display() const {
+
     stringstream ss(content);
     string line;
 
