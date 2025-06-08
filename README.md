@@ -25,6 +25,7 @@
 </p>
 <h2>實作截圖</h2>
 ![image](https://github.com/user-attachments/assets/82bc5e60-e5e3-4cfb-9da1-8f517d57520d)
+<h3>影片連結 (https://drive.google.com/file/d/11O6zATn6t55tKJ7VtQ3k4drehm4YFuOd/view?usp=drive_link)</h3>
 <h2>組內分工</h2>
 <ul>白佳千
 <li>程式基本架構</li>
