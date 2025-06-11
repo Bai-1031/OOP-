@@ -28,7 +28,11 @@
 </p>
 <h2>實作截圖</h2>
 ![image](https://github.com/user-attachments/assets/82bc5e60-e5e3-4cfb-9da1-8f517d57520d)
-<h2>執行方式 Visual Studio</h2>
+<h2>執行方式</h2> 
+  <p>
+    雲端下載 (https://drive.google.com/drive/folders/1C1alqJH43hGfcws0pXbzjnDi1uxkWphj)
+      <br>Visual Studio
+  </p>
 <h2>組內分工</h2>
 <ul>白佳千
 <li>程式基本架構</li>
