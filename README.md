@@ -16,7 +16,7 @@
 <h2>關於程式</h2>
 <p>
  以下影片連結是程式執行範例。<br>
-  <h3>影片連結 (https://drive.google.com/file/d/11O6zATn6t55tKJ7VtQ3k4drehm4YFuOd/view?usp=drive_link)</h3>
+  <h6>影片連結 (https://drive.google.com/file/d/11O6zATn6t55tKJ7VtQ3k4drehm4YFuOd/view?usp=drive_link)</h6>
   其中有兩個最重要的類別:Choice和Scene ,分別是選擇和場景，場景用來連接選擇，跳轉到不同場景營造出故事效果，其他mananger函式則是用來填不同劇本，再用map作為陣列資料的儲存和輸出，最後由main函式處理除錯的部分以及，前面的劇本選擇機制，利用if else 來進行選項分數的加總輸出跳轉內容，直到故事結束前，不同故事內容分支都會跳轉到不同場景，以利遊戲進行。
 </p>
 <h2>實作截圖</h2>
